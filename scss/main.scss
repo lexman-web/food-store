@@ -1,5 +1,6 @@
 /* import */
 @import "var";
+@import "mixin";
 
 
 /* reset */
@@ -39,6 +40,10 @@ img {
     display: block;
 }
 
+main {
+    background-color: $back-white;
+}
+
 /* wrapper, container */
 .container {
     max-width: 1200px;
@@ -47,3 +52,154 @@ img {
 }
 
 /* header */
+.header {
+    width: 100%;
+    height: 10.5rem;
+
+    position: relative;
+    z-index: 10;
+}
+
+.navbar {
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__logo {
+        flex: 0 0 210px;
+        height: 10.5rem;
+        position: relative;
+        z-index: 10;
+        display: block;
+
+        &-wrapp {
+            width: 210px;
+            height: 210px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            background-color: $back-white;
+        }
+
+        &-img {
+            width: 147px;
+            height: 147px;
+        }
+    }
+}
+
+// menu 
+.menu {
+    flex: 1 1 100%;
+    padding-left: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+
+    &__link {
+        font-size: 1.8em;
+        font-weight: 500;
+        color: $font-main;
+    }
+}
+
+.button-menu {
+    padding-right: 4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    &__line {
+        width: 1px;
+        height: 39px;
+        display: block;
+        background-color: $separator-line;
+    }
+
+    &__button {
+        border: none;
+        padding: 0;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__icon {
+        width: 29px;
+        height: 29px;
+    }
+}
+
+.login-button {
+    border: 1px solid $brend-color;
+    padding: 1.2rem 3.1rem;
+    
+    border-radius: 10px;
+    background-color: transparent;
+    cursor: pointer;
+
+    font-size: 1.8em;
+    color: $font-second;
+}
+
+.menu-button {
+    display: none;
+}
+
+/* hero */
+.hero {
+    width: 100%;
+    height: calc(100vh - 105px);
+    padding: 0 15px;
+    @include background-image("../img/01_1.jpg");
+    
+    &__container {
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+    }
+
+    &__heading {
+        max-width: 57rem;
+    }
+
+    &__title {
+        margin-bottom: 6px;
+        @include responsive-font(48, 28, 1280, 320);
+        font-weight: 700;
+        line-height: 145%;
+        color: $font-white;
+    }
+
+    &__sub-title {
+        margin-bottom: 35px;
+        @include responsive-font(18, 14, 1280, 320);
+        line-height: 27 / 18 * 100%;
+        color: $font-white;
+    }
+
+    &__button {
+        border: 1px solid $back-white;
+        padding: 0.8em 1.56em;
+        font-size: 1.6em;
+        font-weight: 600;
+        line-height: 24 / 16 * 100%;
+        color: $font-white;
+    }
+}
+

@@ -1,0 +1,17 @@
+/* background image */
+@mixin background-image ($url) {
+    background-image: url($url);
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+/* responsive font */
+@mixin responsive-font($maxSize, $minSize, $maxScreen, $minScreen) {
+	$sizeDifference: $maxSize - $minSize;
+	$screenDifference: $maxScreen - $minScreen;
+	font-size: calc(
+		#{$minSize + px} + #{$sizeDifference} *
+			((100vw - #{$minScreen + px}) / #{$screenDifference})
+	);
+}
