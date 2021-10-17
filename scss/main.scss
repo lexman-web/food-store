@@ -203,3 +203,197 @@ main {
     }
 }
 
+/* products */
+.products{
+    padding: 10rem 0;
+    background-color: $section-back;
+
+    &__heading {
+        margin-bottom: 40px;
+    }
+
+    &__title {
+        max-width: 28.5rem;
+        @include responsive-font(36, 24, 1280, 320);
+        font-weight: 700;
+        line-height: 54 / 36 * 100%;
+        text-transform: uppercase;
+        color: $font-main;
+
+        &--brend {
+            color: $brend-color;
+        }
+    }
+
+    &__action {
+        margin-top: 40px;
+        text-align: center;
+    }
+}
+
+.products-menu {
+    display: flex;
+    align-items: stretch;
+    flex-flow: wrap;
+    justify-content: space-between;
+    gap: 30px;
+
+    &__item {
+        flex: 0 0 270px;
+    }
+}
+
+.product-card {
+    text-align: center;
+    background-color: $back-white;
+
+    &__wrapper {
+        padding: 25px 20px;
+        display: block;
+    }
+
+    &__prev {
+        width: 95px;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    &__image {
+        object-fit: cover;
+    }
+
+    &__manufacturer {
+        margin-bottom: 5px;
+        font-size: 1.6em;
+        font-style: italic;
+        line-height: 24 / 16 * 100%;
+        color: $font-main;
+    }
+
+    &__name {
+        margin-bottom: 15px;
+        font-size: 1.6em;
+        font-weight: 600;
+        line-height: 24 / 16 * 100%;
+        color: $font-main;
+    }
+    
+    &__size {
+        font-weight: 400;
+    }
+
+    &__price {
+        margin-bottom: 15px;
+        font-size: 2.4em;
+        font-weight: 600;
+        line-height: 36 / 24 * 100%;
+        color: $brend-color;
+    }
+
+    &__button {
+        margin: 0 auto;
+        border: 1px solid $brend-color;
+        padding: 0.6em 1.38em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: transparent;
+        border-radius: 10px;
+        cursor: pointer;
+
+        font-size: 1.8em;
+        font-weight: 500;
+        color: $brend-color;
+
+        &-icon {
+            width: 29px;
+            height: 29px;
+            fill: $brend-color;
+        }
+    }
+}
+
+.products-link {
+    padding: 0.6em 1.38em;
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: $brend-color;
+    border-radius: 10px;
+    font-size: 1.8em;
+
+    &__text {
+        font-size: 1em;
+        font-weight: 500;
+        line-height: 27 / 18 * 100%;
+        color: $font-white;
+    }
+
+    &__icon {
+        width: 22px;
+        height: 16px;
+    }
+}
+
+/* about */
+.about {
+    padding: 100px 0;
+    position: relative;
+
+    &__background  {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        &-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: rotate(180deg);
+        }
+    }
+
+    &__descript {
+        max-width: 57rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    &__heading {
+        @extend .products__heading;
+        
+    }
+
+    &__title {
+        @extend .products__title;
+
+        &--brend {
+            color: $brend-color;
+        }
+    }
+
+    &__text {
+        margin-bottom: 50px;
+        font-size: 1.6em;
+        line-height: 162%;
+        color: $font-main;
+    }
+
+    &__link {
+        padding: 0.61em 1.38em;
+        
+        background-color: $brend-color;
+        border-radius: 10px;
+        
+        font-size: 1.8em;
+        font-weight: 500;
+        line-height: 27 / 18 * 100%;
+        color: $font-white;
+    }
+}
