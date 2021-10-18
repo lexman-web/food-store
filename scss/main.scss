@@ -397,3 +397,280 @@ main {
         color: $font-white;
     }
 }
+
+/* blog */
+.blog {
+    padding: 100px 0;
+
+    &__heading {
+        margin-bottom: 50px;
+        display: flex;
+        align-items: flex-end;
+        gap: 15px;
+    }
+
+    &__title {
+        @extend .products__title;
+        line-height: 100%;
+    }
+
+    &__link {
+        position: relative;
+        font-size: 1.6em;
+        font-weight: 500;
+        line-height: 16 / 24 * 100%;
+        color: $font-second;
+
+        &::after {
+            content: "";
+            width: 0.8rem;
+            height: 1.4rem;
+
+            position: absolute;
+            top: 50%;
+            right: -15px;
+
+            background-image: url("../img/more-arrow.svg");
+            background-position: 50% 50%;
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            transform: translateY(-40%);
+        }
+    }
+}
+
+.blog-menu {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 30px;
+
+    &__article {
+        flex: 1 1 37rem;
+    }
+}
+
+.blog-article {
+
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+
+        display: block;
+    }
+
+    &__media {
+        width: 100%;
+        height: 22.5rem;
+        margin-bottom: 20px;
+        
+        position: relative;
+
+        background-position: 50% 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        overflow: hidden;
+
+        &--first {
+            background-image: url("../img/04_1.jpg");
+        }
+
+        &--second {
+            background-image: url("../img/04_2.jpg");
+        }
+
+        &--third {
+            background-image: url("../img/04_3.jpg");
+        }
+    }
+
+    &__arrow {
+        width: 98px;
+        height: 98px;
+
+        position: absolute;
+        right: -49px;
+        bottom: -49px;
+
+        background-color: $brend-color;
+        border-radius: 50%;
+
+        &-icon {
+            width: 22px;
+            height: 18px;
+
+            position: absolute;
+            top: 21px;
+            left: 19px;
+        }
+    }
+
+    &__statistic {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        font-size: 1.4em;
+        color: $font-main;
+    }
+
+    &__circle {
+        width: 5px;
+        height: 5px;
+
+        background-color: $brend-color;
+        border-radius: 50%;
+    }
+
+    &__views {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    &__eye {
+        width: 16px;
+        height: 16px;
+    }
+
+    &__title {
+        margin-bottom: 5px;
+        font-size: 2em;
+        font-weight: 600;
+        line-height: 30 / 20 * 100%;
+        color: $font-main;
+    }
+
+    &__text {
+        font-size: 1.6em;
+        line-height: 164%;
+        color: $font-main;
+    }
+}
+
+/* recipes */
+.recipes {
+    padding: 100px 0;
+    background-color: $section-back;
+
+    &__heading {
+        @extend .blog__heading;
+    }
+
+    &__title {
+        @extend .blog__title;
+    }
+
+    &__link {
+        @extend .blog__link;
+    }
+}
+
+.recipes-menu {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 30px;
+
+    &__item {
+        flex: 1 1 370px;
+    }
+}
+
+.recipes-card {
+
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    &__media {
+        width: 100%;
+        height: 22.5rem;
+        margin-bottom: 15px;
+        
+        position: relative;
+
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+
+        &::before {
+            padding: 6px 19px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            background-color: $brend-color;
+            border-bottom-right-radius: 15px;
+
+            font-size: 1.6em;
+            line-height: 26 / 16 * 100%;
+            color: $font-white;
+        }
+
+        &--first {
+            background-image: url("../img/05_1.jpg");
+            
+            &::before {
+                content: "Breakfast";
+            }
+
+        }
+
+        &--second {
+            background-image: url("../img/05_2.jpg");
+
+            &::before {
+                content: "Salads";
+            }
+        }
+
+        &--third {
+            background-image: url("../img/05_3.jpg");
+
+            &::before {
+                content: "Main Dishes";
+            }
+        }
+    }
+
+    &__title {
+        font-size: 2em;
+        font-weight: 600;
+        line-height: 30 / 20 * 100%;
+        color: $font-main;
+    }
+}
+
+/* footer */
+.footer {
+    padding: 50px 0;
+    background-color: $brend-color;
+    font-size: 1.4em;
+    color: $font-white;
+}
+
+.footer-menu {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: 1em;
+        font-weight: 600;
+    }
+}
+
+.footer-list {
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+}
