@@ -18,6 +18,10 @@ body {
     font-size: 1rem;
 }
 
+.body--lock {
+    overflow: hidden;
+}
+
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
 }
@@ -58,9 +62,14 @@ main {
 
     position: relative;
     z-index: 10;
+
+    &__container {
+        padding: 0;
+    }
 }
 
 .navbar {
+    padding: 0 15px;
     position: relative;
     z-index: 10;
 
@@ -102,6 +111,31 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    // burger
+    @media screen and (max-width: 992px) {
+        width: 100%;
+        height: 100vh;
+        padding: 0;
+        
+        position: absolute;
+        top: 0;
+        left: -100%;
+        z-index: 15;
+
+        flex-flow: column;
+        justify-content: center;
+        gap: 40px;
+
+        background-color: $brend-color;
+        opacity: 0.98;
+        
+        transition: 0.6s left;
+
+        &--open {
+            left: 0;
+        }
+    }
 }
 
 .nav-menu {
@@ -113,6 +147,17 @@ main {
         font-size: 1.8em;
         font-weight: 500;
         color: $font-main;
+
+        transition: 0.4s; 
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    // burger
+    @media screen and (max-width: 992px) {
+        flex-flow: column;
     }
 }
 
@@ -141,23 +186,97 @@ main {
     &__icon {
         width: 29px;
         height: 29px;
+        fill: $font-main;
+
+        transition: 0.4s;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    // burger
+    @media screen and (max-width: 992px) {
+        padding-right: 0;
+
+        &__line {
+            background-color: $main-back;
+        }
     }
 }
 
 .login-button {
     border: 1px solid $brend-color;
     padding: 1.2rem 3.1rem;
-    
     border-radius: 10px;
     background-color: transparent;
     cursor: pointer;
-
     font-size: 1.8em;
     color: $font-second;
+
+    transition: 0.4s all;
+
+    &:hover {
+        background-color: $brend-color;
+        color: $font-white;
+    }
+
+    // burger
+    @media screen and (max-width: 992px) {
+        display: none;
+    }
 }
 
 .menu-button {
     display: none;
+    
+    // burger
+    @media screen and (max-width: 992px) {
+        width: 40px;
+        height: 40px;
+        border: none;
+        padding: 10px 5px;
+        position: relative;
+        z-index: 20;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        background-color: transparent;
+        cursor: pointer;
+
+        &__line {
+            width: 30px;
+            height: 3px;
+            background-color: $main-back;
+            border-radius: 5px;
+
+            transition: 0.3s all;
+
+            &--over {
+                opacity: 0.7;
+            }
+
+            &--active {
+                position: absolute;
+                transition: 0.4s;
+
+                &:first-child {
+                    top: 20px;
+                    transform: rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                    display: none;
+                }
+
+                &:last-child {
+                    top: 20px;
+                    transform: rotate(-45deg);
+                }
+
+            }
+        }
+    }
 }
 
 /* hero */
@@ -200,6 +319,13 @@ main {
         font-weight: 600;
         line-height: 24 / 16 * 100%;
         color: $font-white;
+
+        transition: 0.4s all;
+
+        &:hover {
+            background-color: $back-white;
+            color: $font-second;
+        }
     }
 }
 
@@ -223,6 +349,10 @@ main {
         &--brend {
             color: $brend-color;
         }
+
+        @media screen and (max-width: 992px) {
+            margin: 0 auto;
+        }
     }
 
     &__action {
@@ -234,12 +364,20 @@ main {
 .products-menu {
     display: flex;
     align-items: stretch;
-    flex-flow: wrap;
     justify-content: space-between;
     gap: 30px;
 
     &__item {
-        flex: 0 0 270px;
+        flex: 1 1 270px;
+    }
+
+    @media screen and (max-width: 1020px) {
+        flex-flow: wrap;
+        justify-content: center;
+        
+        &__item {
+            flex: 0 0 300px;
+        }
     }
 }
 
@@ -250,6 +388,9 @@ main {
     &__wrapper {
         padding: 25px 20px;
         display: block;
+
+        border-radius: 5px;
+        box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
     }
 
     &__prev {
@@ -301,15 +442,24 @@ main {
         background-color: transparent;
         border-radius: 10px;
         cursor: pointer;
+        fill: $font-second;
 
         font-size: 1.8em;
         font-weight: 500;
         color: $brend-color;
 
+        transition: 0.4s;
+
+        &:hover {
+            background-color: $brend-color;
+            color: $font-white;
+            fill: $font-white;
+        }
+
         &-icon {
             width: 29px;
             height: 29px;
-            fill: $brend-color;
+            fill: inherit;
         }
     }
 }
@@ -324,6 +474,12 @@ main {
     background-color: $brend-color;
     border-radius: 10px;
     font-size: 1.8em;
+
+    transition: 0.4s;
+
+    &:hover {
+        background-color: transparentize($brend-color, 0.3);
+    }
 
     &__text {
         font-size: 1em;
@@ -356,13 +512,21 @@ main {
             height: 100%;
             object-fit: cover;
             transform: rotate(180deg);
+
+            @media screen and (max-width: 567px) {
+                object-position: 100% 0;
+            }
         }
     }
 
     &__descript {
-        max-width: 57rem;
+        max-width: 570 / 1280 * 100%;
         position: relative;
         z-index: 2;
+
+        @media screen and (max-width: 567px) {
+            max-width: 100%;
+        }
     }
 
     &__heading {
@@ -372,6 +536,7 @@ main {
 
     &__title {
         @extend .products__title;
+        margin: 0;
 
         &--brend {
             color: $brend-color;
@@ -395,6 +560,12 @@ main {
         font-weight: 500;
         line-height: 27 / 18 * 100%;
         color: $font-white;
+
+        transition: 0.4s background-color;
+
+        &:hover {
+            background-color: transparentize($brend-color, 0.3);
+        }
     }
 }
 
@@ -411,6 +582,7 @@ main {
 
     &__title {
         @extend .products__title;
+        margin: 0;
         line-height: 100%;
     }
 
@@ -420,6 +592,7 @@ main {
         font-weight: 500;
         line-height: 16 / 24 * 100%;
         color: $font-second;
+        transition: 0.4s;
 
         &::after {
             content: "";
@@ -437,6 +610,10 @@ main {
 
             transform: translateY(-40%);
         }
+
+        &:hover {
+            opacity: 0.7;
+        }
     }
 }
 
@@ -448,6 +625,10 @@ main {
 
     &__article {
         flex: 1 1 37rem;
+    }
+
+    @media screen and (max-width: 870px) {
+        flex-flow: wrap;
     }
 }
 
@@ -578,6 +759,10 @@ main {
     &__item {
         flex: 1 1 370px;
     }
+
+    @media screen and (max-width: 870px) {
+        flex-flow: wrap;
+    }
 }
 
 .recipes-card {
@@ -667,10 +852,27 @@ main {
         font-size: 1em;
         font-weight: 600;
     }
+
+    @media screen and (max-width: 567px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: 400px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .footer-list {
     display: flex;
     flex-flow: column;
     gap: 10px;
+
+    &__link {
+        transition: 0.4s opacity;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
 }
